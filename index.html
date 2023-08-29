@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Frontend/design.css" />
+    <title>Node.js & Express assignment</title>
+  </head>
+  <body>
+    <h2>Artists List</h2>
+
+    <main>
+      <section id="artists" class="grid-container"></section>
+      <form id="form-create">
+        <h2>Create a new User</h2>
+        <input
+          type="text"
+          name="name"
+          placeholder="Type artist name"
+          required
+        />
+        <label
+          >Birthdate:
+          <input
+            type="date"
+            name="birthdate"
+            placeholder="Type artist' birthdate"
+            required
+          />
+        </label>
+        <label
+          >Active Since:
+          <input
+            type="date"
+            name="activeSince"
+            placeholder="Type artist year"
+            required
+          />
+        </label>
+        <input type="text" name="genres" placeholder="Type genres" required />
+        <input type="text" name="labes" placeholder="Type Labes" required />
+        <input type="url" name="website" placeholder="Website" required />
+        <input type="url" name="image" placeholder="Insert image" required />
+        <input
+          type="text"
+          name="shortDescription"
+          placeholder="Write a short description"
+          required
+        />
+        <button>Create User</button>
+      </form>
+
+      <form id="form-update">
+        <h2>Update User</h2>
+        <input
+          type="text"
+          name="name"
+          placeholder="Type artist name"
+          required
+        />
+        <label
+          >Birthdate:
+          <input
+            type="date"
+            name="birthdate"
+            placeholder="Type artist' birthdate"
+            required
+          />
+        </label>
+        <label
+          >Active Since:
+          <input
+            type="date"
+            name="activeSince"
+            placeholder="Type artist year"
+            required
+          />
+        </label>
+        <input type="text" name="genres" placeholder="Type genres" required />
+        <input type="text" name="labes" placeholder="Type Labes" required />
+        <input type="url" name="website" placeholder="Website" required />
+        <input type="url" name="image" placeholder="Insert image" required />
+        <input
+          type="text"
+          name="shortDescription"
+          placeholder="Write a short description"
+          required
+        />
+        <button>Update User</button>
+      </form>
+    </main>
+
+    <footer></footer>
+  </body>
+  <script src="Frontend/app.js" type="module"></script>
+</html>

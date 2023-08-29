@@ -1,0 +1,82 @@
+[
+  {
+    "name": "John Smith",
+    "birthdate": "15-03-1985",
+    "activeSince": "2005",
+    "genres": ["Pop", "Rock"],
+    "labels": ["Universal Music", "Indie Records"],
+    "website": "http://www.johnsmithmusic.com",
+    "image": "john_smith.jpg",
+    "shortDescription": "Talented pop-rock singer-songwriter."
+  },
+  {
+    "name": "Emily Johnson",
+    "birthdate": "22-08-1990",
+    "activeSince": "2010",
+    "genres": ["Indie", "Folk"],
+    "labels": ["Acoustic Sounds", "Serenade Records"],
+    "website": "http://www.emilyjohnsonmusic.com",
+    "image": "emily_johnson.jpg",
+    "shortDescription": "Soulful indie-folk artist with a unique voice."
+  },
+  {
+    "name": "David Williams",
+    "birthdate": "05-11-1978",
+    "activeSince": "1998",
+    "genres": ["R&B", "Soul"],
+    "labels": ["Groove Records", "Soulful Productions"],
+    "website": "http://www.davidwilliamsmusic.com",
+    "image": "david_williams.jpg",
+    "shortDescription": "Smooth R&B and soul vocalist."
+  },
+  {
+    "name": "Maria Rodriguez",
+    "birthdate": "30-06-1992",
+    "activeSince": "2012",
+    "genres": ["Latin", "Pop"],
+    "labels": ["Ritmo Latino", "Sony Music"],
+    "website": "http://www.mariarodriguez.com",
+    "image": "maria_rodriguez.jpg",
+    "shortDescription": "Energetic Latin pop sensation."
+  },
+  {
+    "name": "Alexandre Dubois",
+    "birthdate": "18-02-1989",
+    "activeSince": "2010",
+    "genres": ["Electronic", "Ambient"],
+    "labels": ["SynthWave Records", "EchoSound Productions"],
+    "website": "http://www.alexandredubois.com",
+    "image": "alexandre_dubois.jpg",
+    "shortDescription": "Innovative electronic soundscapes creator."
+  },
+  {
+    "name": "Sophie Chen",
+    "birthdate": "12-09-1995",
+    "activeSince": "2015",
+    "genres": ["Pop", "Dance"],
+    "labels": ["Starlight Music", "ElectroBeat Records"],
+    "website": "http://www.sophiechenmusic.com",
+    "image": "sophie_chen.jpg",
+    "shortDescription": "Energetic pop and dance performer."
+  },
+  {
+    "name": "Michael O'Connor",
+    "birthdate": "25-04-1982",
+    "activeSince": "2002",
+    "genres": ["Country", "Folk"],
+    "labels": ["Nashville Records", "CountryTunes Productions"],
+    "website": "http://www.michaeloconnormusic.com",
+    "image": "michael_oconnor.jpg",
+    "shortDescription": "Authentic country and folk storyteller."
+  },
+  {
+    "name": "Lena Schmidt",
+    "birthdate": "10-12-1998",
+    "activeSince": "2018",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Velvet Voice Entertainment", "Starshine Records"],
+    "website": "http://www.lenaschmidtmusic.com",
+    "image": "lena_schmidt.jpg",
+    "shortDescription": "Soulful pop and R&B vocalist."
+  }
+]
