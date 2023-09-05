@@ -1,17 +1,17 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Back end for nodejs-express-assignment",
-  "main": "backend.js",
+  "description": "Back end for node.js-express-assignment",
+  "main": "./backend/backend.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch app.js"
+    "start": "node --watch ./backend/backend.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "course": "^0.0.1",
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   }
 }

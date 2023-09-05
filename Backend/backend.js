@@ -1,23 +1,70 @@
-import Express from "express";
-const app = Express();
+import express from "express";
+import fs from "fs/promises";
+import cors from "cors";
+
+const app = express();
 const port = 6969;
 
+app.use(express.json());
+app.use(cors());
+
 app.listen(port, () => {
-  console.log(`Server started on ${port}`);
+  console.log(`Server started on http:/localhost:${port}`);
 });
 
-app.get("/", (req, res) => {
+app.get("/artists", async (req, res) => {
   res.send("Hello welcome to my website");
+  const data = await fs.readFile("./backend/data/artists.json");
+  const artists = JSON.parse(data);
+  res.json(artists);
 });
 
-app.post("/", (req, res) => {
+app.post("/artists", async (req, res) => {
   res.send("A POST requested");
+  const data = await fs.readFile("./backend/data/artists.json");
+  const artists = JSON.parse(data);
+
+  const newArtist = req.body;
+  newArtist.id = new Date().getTime();
+
+  artists.push(newArtist);
+  fs.writeFile("./backend/data/artists.json", JSON.stringify(artists));
+  res.json(artists);
 });
 
-app.put("/put", (req, res) => {
-  res.send("PUT request on /user");
+// Update artists
+app.put("/artist/:id", async (req, res) => {
+  // Finder id på den valgte artist
+  const id = Number(req.params.id);
+  const data = await fs.readFile("./backend/data/artists.json");
+  const artists = JSON.parse(data);
+
+  // tager id fra før og fortæller hvad der skal updateres med hvad
+  let updateArtists = artists.find((artist) => artist.id === id);
+  // Det der skal erstatte updateArtists = body
+  const body = req.body;
+  updateArtists.name = body.name;
+  updateArtists.birthdate = body.birthdate;
+  updateArtists.activeSince = body.activeSince;
+  updateArtists.genres = body.genres;
+  updateArtists.labes = body.labes;
+  updateArtists.website = body.website;
+  updateArtists.image = body.image;
+  updateArtists.shortDescription = body.shortDescription;
+
+  fs.writeFile("./backend/data/artists.json", JSON.stringify(artists));
+  res.json(artists);
 });
 
-app.delete("/delete", (req, res) => {
-  res.send("Delete request on /delete");
+// Delete en valgt artist
+app.delete("/artist/:id", async (req, res) => {
+  // finder id på den valgte artist
+  const id = Number(req.params.id);
+  const data = await fs.readFile("./backend/data/artists.json");
+  const artists = JSON.parse(data);
+
+  // filtrer alle andre artists som ikke har det valgte id
+  let deleteArtists = artists.filter((artist) => artist.id === id);
+  fs.writeFile("./backend/data/artists.json", JSON.stringify(deleteArtists));
+  res.json(artists);
 });
