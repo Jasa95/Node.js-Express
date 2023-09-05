@@ -9,18 +9,16 @@ app.use(express.json());
 app.use(cors());
 
 app.listen(port, () => {
-  console.log(`Server started on http:/localhost:${port}`);
+  console.log(`Server started on http://localhost:${port}`);
 });
 
 app.get("/artists", async (req, res) => {
-  res.send("Hello welcome to my website");
   const data = await fs.readFile("./backend/data/artists.json");
   const artists = JSON.parse(data);
   res.json(artists);
 });
 
 app.post("/artists", async (req, res) => {
-  res.send("A POST requested");
   const data = await fs.readFile("./backend/data/artists.json");
   const artists = JSON.parse(data);
 
@@ -33,7 +31,7 @@ app.post("/artists", async (req, res) => {
 });
 
 // Update artists
-app.put("/artist/:id", async (req, res) => {
+app.put("/artists/:id", async (req, res) => {
   // Finder id på den valgte artist
   const id = Number(req.params.id);
   const data = await fs.readFile("./backend/data/artists.json");
@@ -57,14 +55,14 @@ app.put("/artist/:id", async (req, res) => {
 });
 
 // Delete en valgt artist
-app.delete("/artist/:id", async (req, res) => {
+app.delete("/artists/:id", async (req, res) => {
   // finder id på den valgte artist
   const id = Number(req.params.id);
   const data = await fs.readFile("./backend/data/artists.json");
   const artists = JSON.parse(data);
 
   // filtrer alle andre artists som ikke har det valgte id
-  let deleteArtists = artists.filter((artist) => artist.id === id);
+  let deleteArtists = artists.filter((artist) => artist.id !== id);
   fs.writeFile("./backend/data/artists.json", JSON.stringify(deleteArtists));
   res.json(artists);
 });

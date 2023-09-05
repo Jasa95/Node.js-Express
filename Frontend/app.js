@@ -1,4 +1,5 @@
 "use strict";
+import {createArtist, readData, updateArtists, deleteArtists} from "./http.js"
 // sætter endpoint til backend/data
 const endpoint = "./backend/data";
 
@@ -9,13 +10,17 @@ let artists;
 // start funktion der loader med window.addeventlistner
 async function start() {
   console.log("run niggah ruuun");
-  artists = await getData();
+  artists = await readData();
   console.log(artists);
   displayListOfArtists(artists);
+
+
+  document.querySelector("#form-create").addEventListener("submit", createArtist)
+  document.querySelector("#form-update").addEventListener("submit", updateArtists)
 }
 
 // display funktion der tager og kigger på om der er nogen artists
-function displayListOfArtists(listOfartists) {
+async function displayListOfArtists(listOfartists) {
   document.querySelector("#artists").innerHTML = "";
 
   if (listOfartists.length !== 0) {
@@ -27,7 +32,7 @@ function displayListOfArtists(listOfartists) {
   }
 }
 
-function displayArtist(artist) {
+async function displayArtist(artist) {
   document.querySelector("#artists").insertAdjacentHTML(
     "beforeend",
     /* HTML */
@@ -37,7 +42,7 @@ function displayArtist(artist) {
         <p>${artist.birthdate}</p>
         <p>${artist.activeSince}</p>
         <p>${artist.genres}</p>
-        <p>${artist.labels}</p>
+        <p>${artist.labels}</p> 
         <a>${artist.website}</a>
         <p>${artist.image}</p>
         <p>${artist.shortDescription}</p>
@@ -48,31 +53,8 @@ function displayArtist(artist) {
       </article>
     `
   );
+  document
+    .querySelector("#artists article:last-child .btn-delete")
+    .addEventListener("click", () => deleteArtists(artist.id));
 }
 
-async function createArtist(name, birthdate, activeSince, genres, labels, website, image, shortDescription) {
- const newArtist = {
-    name: name,
-    birthdate: birthdate,
-    activeSince: activeSince,
-    genres: genres,
-    labels: labels,
-    website: website,
-    image: image,
-    shortDescription: shortDescription,
- }
- const artistAsJSON = JSON.stringify(newArtist);
- const res = await fetch(`${endpoint}/artists.json`, {
-    method: "POST",
-    body: artistAsJSON,
- })
-return res
-  
-}
-
-// get data fra backend/data/artists.json
-async function getData() {
-  const response = await fetch(`${endpoint}/artists.json`);
-  const data = await response.json();
-  return data;
-}
