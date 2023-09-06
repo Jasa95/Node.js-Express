@@ -42,7 +42,7 @@ async function displayListOfArtists(listOfartists) {
 async function displayArtist(artist) {
   const artistHTML = /*HTML*/ `
     <section class="grind-item">
-     <img src="url" ${artist.image}/>'
+     <img src="${artist.image}"/>'
       <h2>${artist.name}</h2>
       <p>${artist.birthdate}</p>
       <p>${artist.activeSince}</p>
@@ -63,9 +63,5 @@ async function displayArtist(artist) {
 
   document
     .querySelector("#artists section:last-child .btn-delete")
-    .addEventListener(
-      "click",
-      () => console.log("delete button clicked"),
-      deleteArtists(artist.id)
-    );
+    .addEventListener("click", () => deleteArtists(artist.id));
 }

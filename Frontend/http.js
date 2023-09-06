@@ -10,8 +10,6 @@ async function createArtist(
   image,
   shortDescription
 ) {
-  console.log("Update artists called with id:", id);
-  console.log("Name:", name);
   const newArtist = {
     name: name,
     birthdate: birthdate,
