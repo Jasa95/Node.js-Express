@@ -9,8 +9,9 @@ async function createArtist(
   website,
   image,
   shortDescription
-) { console.log("Update artists called with id:", id);
-console.log("Name:", name);
+) {
+  console.log("Update artists called with id:", id);
+  console.log("Name:", name);
   const newArtist = {
     name: name,
     birthdate: birthdate,

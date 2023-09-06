@@ -5,8 +5,6 @@ import {
   updateArtists,
   deleteArtists,
 } from "./http.js";
-// sætter endpoint til backend/data
-const endpoint = "./backend/data";
 
 // load og kører start funktion
 window.addEventListener("load", start);
@@ -42,7 +40,6 @@ async function displayListOfArtists(listOfartists) {
 
 // displayArtist hvad hver artist i listen artists skal vises med
 async function displayArtist(artist) {
-  console.log("Artist:", artist);
   const artistHTML = /*HTML*/ `
     <section class="grind-item">
      <img src="url" ${artist.image}/>'
@@ -65,13 +62,10 @@ async function displayArtist(artist) {
     .insertAdjacentHTML("beforeend", artistHTML);
 
   document
-    .querySelector("#artists article:last-child .btn-delete")
+    .querySelector("#artists section:last-child .btn-delete")
     .addEventListener(
       "click",
-      () =>
-      deleteArtists(artist.id),
-      );
-      console.log("delete button clicked")
-
-
+      () => console.log("delete button clicked"),
+      deleteArtists(artist.id)
+    );
 }
