@@ -7,10 +7,43 @@
     <title>Node.js & Express assignment</title>
   </head>
   <body>
-    <h2>Artists List</h2>
+    <h1>Artists List</h1>
 
     <main>
+      <section class="tools-grid">
+			<label for="sort-by" id="sort-by-label"
+				>Sort by:
+				<select id="sort-by">
+					<option value="" selected>Choose Here</option>
+					<option value="name">Name</option>
+					<option value="birthdate">Birthdate</option>
+				</select>
+			</label>
+			<label for="filter-by" id="filter-by-label"
+				>Filter By:
+				<select id="filter-by">
+					<option value="" selected>Choose here</option>
+					<option value="Rock">Rock</option>
+					<option value="Pop">Pop</option>
+					<option value="Soul">Soul</option>
+					<option value="Folk">Folk</option>
+					<option value="R&B">R&B</option>
+					<option value="Hip-hop">Hip-Hop</option>
+					<option value="Country">Country</option>
+					<option value="Electropop">Electropop</option>
+					<option value="Alternative">Alternative</option>
+				</select>
+			</label>
+			<section id="favorites">
+				<label for="checkbox-favorites" id="checkbox-favorites">
+					Favorites
+					<input type="checkbox" id="favoritesCheckBox" />
+				</label>
+			</section>
+		</section>
+
       <section id="artists" class="grid-container"></section>
+
       <form id="form-create">
         <h2>Create a new User</h2>
         <input

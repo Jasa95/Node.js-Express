@@ -4,13 +4,18 @@ import {
   readData,
   updateArtists,
   deleteArtists,
+  fetchFavorites,
+  addToFavorites,
+  removeFromFavorites,
 } from "./http.js";
+import { sortArtist, filterArtist } from "./Sorter-filter.js";
 
 // load og kører start funktion
 window.addEventListener("load", start);
 
 let artists;
 let selectedListOfArtists;
+let favoriteID;
 
 // start funktion der loader med window.addeventlistner
 async function start() {
@@ -18,20 +23,25 @@ async function start() {
   artists = await readData();
 
   displayListOfArtists(artists);
-  updateGrid();
 
   document
     .querySelector("#form-create")
     .addEventListener("submit", createClicked);
   document
     .querySelector("#form-update")
-    .addEventListener("submit", updateArtists);
+    .addEventListener("submit", updateArtistClicked);
+  document
+    .querySelector("#filter-by")
+    .addEventListener("change", filterByChanged);
+  document.querySelector("#sort-by").addEventListener("change", sortByChanged);
+  document
+    .querySelector("#favoritesCheckBox")
+    .addEventListener("change", favoritesClicked);
 }
 
 // display funktion der tager og kigger på om der er nogen artists
 async function displayListOfArtists(listOfartists) {
   document.querySelector("#artists").innerHTML = "";
-
   if (listOfartists.length !== 0) {
     for (const artist of listOfartists) displayArtist(artist);
   } else {
@@ -44,8 +54,8 @@ async function displayListOfArtists(listOfartists) {
 // displayArtist hvad hver artist i listen artists skal vises med
 async function displayArtist(artist) {
   const artistHTML = /*HTML*/ `
-    <section class="grind-item">
-     <img src="${artist.image}"/>'
+  <article class="grind-item" id="artist_${artist.id}">
+  <img src="${artist.image}"/>
       <h2>${artist.name}</h2>
       <p>${artist.birthdate}</p>
       <p>${artist.activeSince}</p>
@@ -56,8 +66,10 @@ async function displayArtist(artist) {
       <section class="btns">
         <button class="btn-delete">Delete</button>
         <button class="btn-update">Update</button>
+        <button class="btn-favorite">Favorite</button>
+        <button class="btn-remove-favorite">Remove from favorites</button>
       </section>
-    </section>
+    </article>
   `;
 
   document
@@ -65,12 +77,20 @@ async function displayArtist(artist) {
     .insertAdjacentHTML("beforeend", artistHTML);
 
   document
-    .querySelector("#artists section:last-child .btn-delete")
+    .querySelector("#artists article:last-child .btn-delete")
     .addEventListener("click", () => deleteArtistClicked(artist.id));
 
   document
-    .querySelector("#artists section:last-child .btn-update")
-    .addEventListener("click", () => updateArtistClicked(artist));
+    .querySelector("#artists article:last-child .btn-update")
+    .addEventListener("click", () => selectArtist(artist));
+
+  document
+    .querySelector("#artists article:last-child .btn-favorite")
+    .addEventListener("click", () => addToFavorites(artist.id));
+
+  document
+    .querySelector("#artists article:last-child .btn-remove-favorite")
+    .addEventListener("click", () => removeFromFavorites(artist.id));
 }
 
 // Delete knap på artist
@@ -94,14 +114,15 @@ function selectArtist(artist) {
   updateForm.image.value = artist.image;
   updateForm.website.value = artist.website;
   updateForm.shortDescription.value = artist.shortDescription;
+  updateForm.scrollIntoView();
 }
 
 // update knap på artists
 async function updateArtistClicked(event) {
-  event.preventDefault();
-  const form = event.target
+  console.log("hallo");
+  const form = event.target;
   const name = form.name.value;
-  const birthdate = form.brithdate.value;
+  const birthdate = form.birthdate.value;
   const activeSince = form.activeSince.value;
   const genres = form.genres.value;
   const labels = form.labels.value;
@@ -109,14 +130,14 @@ async function updateArtistClicked(event) {
   const website = form.website.value;
   const shortDescription = form.shortDescription.value;
   const res = await updateArtists(
-    selectArtist.id,
+    selectedListOfArtists.id,
     name,
     birthdate,
     activeSince,
     genres,
     labels,
-    website,
     image,
+    website,
     shortDescription
   );
 
@@ -129,7 +150,7 @@ async function updateArtistClicked(event) {
 // create form
 async function createClicked(event) {
   event.preventDefault();
-  const form = event.target
+  const form = event.target;
   const name = form.name.value;
   const birthdate = form.birthdate.value;
   const activeSince = form.activeSince.value;
@@ -152,11 +173,36 @@ async function createClicked(event) {
   if (res.ok) {
     form.reset();
     updateGrid();
+    scroll();
   }
 }
 
 // update af liste efter delete/update
 async function updateGrid() {
   const artists = await readData();
+  favoriteID = await fetchFavorites();
   displayArtist(artists);
+}
+function favoritesClicked(event) {
+  const isCheckedOff = event.target.checked;
+  console.log(isCheckedOff);
+  if (isCheckedOff) {
+    displayArtist(favoriteID);
+  } else {
+    updateGrid();
+  }
+}
+// == Sort
+function sortByChanged(event) {
+  const selectedValue = event.target.value;
+  displayArtist(sortArtist(artists, selectedValue));
+}
+// == Filter
+function filterByChanged(event) {
+  const selectedValue = event.target.value;
+  displayArtist(filterArtist(artists, selectedValue));
+}
+// scroll
+function scroll() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }

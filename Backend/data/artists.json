@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "John Smith",
     "birthdate": "15-03-1985",
     "activeSince": "2005",
@@ -10,6 +11,7 @@
     "shortDescription": "Talented pop-rock singer-songwriter."
   },
   {
+    "id": 2,
     "name": "Emily Johnson",
     "birthdate": "22-08-1990",
     "activeSince": "2010",
@@ -20,6 +22,7 @@
     "shortDescription": "Soulful indie-folk artist with a unique voice."
   },
   {
+    "id": 3,
     "name": "David Williams",
     "birthdate": "05-11-1978",
     "activeSince": "1998",
@@ -30,6 +33,7 @@
     "shortDescription": "Smooth R&B and soul vocalist."
   },
   {
+    "id": 4,
     "name": "Maria Rodriguez",
     "birthdate": "30-06-1992",
     "activeSince": "2012",
@@ -40,6 +44,7 @@
     "shortDescription": "Energetic Latin pop sensation."
   },
   {
+    "id": 5,
     "name": "Alexandre Dubois",
     "birthdate": "18-02-1989",
     "activeSince": "2010",
@@ -50,6 +55,7 @@
     "shortDescription": "Innovative electronic soundscapes creator."
   },
   {
+    "id": 6,
     "name": "Sophie Chen",
     "birthdate": "12-09-1995",
     "activeSince": "2015",
@@ -60,6 +66,7 @@
     "shortDescription": "Energetic pop and dance performer."
   },
   {
+    "id": 7,
     "name": "Michael O'Connor",
     "birthdate": "25-04-1982",
     "activeSince": "2002",
@@ -70,6 +77,7 @@
     "shortDescription": "Authentic country and folk storyteller."
   },
   {
+    "id": 8,
     "name": "Lena Schmidt",
     "birthdate": "10-12-1998",
     "activeSince": "2018",
@@ -78,18 +86,5 @@
     "website": "http://www.lenaschmidtmusic.com",
     "image": "https://d16kd6gzalkogb.cloudfront.net/__sized__/artist_images/Lena-Schmidt-portrait-photo-credits-of-the-artist-crop_webp-555x312.webp",
     "shortDescription": "Soulful pop and R&B vocalist."
-  },
-  { "name": { "isTrusted": true }, "id": 1693994273663 },
-  { "name": { "isTrusted": true }, "id": 1693994603515 },
-  {
-    "name": "Jacob Stadarfeld Andersen",
-    "birthdate": "1995-02-05",
-    "activeSince": "2010-09-19",
-    "genres": "Techno",
-    "labels": "yo mama",
-    "website": "https://www.euroman.dk/media/2ee53b234e6c471a92658ad8ba2ba613/ba390c62da86461a92ad903f465a026a.jpg?width=1920",
-    "image": "https://www.facebook.com/",
-    "shortDescription": "Best dj in the world!",
-    "id": 1694074501075
   }
 ]

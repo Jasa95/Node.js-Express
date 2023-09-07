@@ -45,13 +45,13 @@ a {
 }
 
 img {
-  width: 100%;
-  height: auto;
+    width:  100px;
+    height: 100px;
+    object-fit: contain;
 }
 
 /* ---------- header styling ---------- */
 header {
-  background-color: var(--green);
   color: var(--text-color-light);
   padding: 1em;
   position: fixed;
@@ -74,12 +74,6 @@ footer {
   font-size: 100%;
 }
 
-/* ---------- main page styling ---------- */
-main {
-  background: var(--light-green);
-  animation: fadeIn 0.4s;
-  padding: 137px 0 0;
-}
 
 /* ---------- animations ---------- */
 /* fade in */
@@ -97,8 +91,8 @@ main {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1em;
-  padding: 1em;
+  gap: 2%;
+  padding: 2em;
 }
 
 @media (min-width: 600px) {
@@ -194,34 +188,3 @@ input {
   background: var(--white);
 }
 
-/* ---------- dialog styling ---------- */
-
-dialog {
-  border-color: var(--green);
-  background-color: var(--light-green);
-  width: 65vw;
-
-  max-width: 40%;
-  max-height: 80%;
-  text-align: center;
-}
-
-dialog::backdrop {
-  background: rgba(43, 43, 45, 0.8);
-}
-
-.dialog-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-dialog h4 {
-  margin-bottom: 0;
-}
-dialog ul {
-  margin: 0.5em 0 1em;
-  padding-inline-start: 1.5em;
-}
-dialog p {
-  margin: 0.5em 0 1em;
-}

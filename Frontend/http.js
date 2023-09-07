@@ -6,8 +6,8 @@ async function createArtist(
   activeSince,
   genres,
   labels,
-  website,
   image,
+  website,
   shortDescription
 ) {
   const newArtist = {
@@ -45,20 +45,22 @@ async function updateArtists(
   activeSince,
   genres,
   labels,
-  website,
   image,
+  website,
   shortDescription
 ) {
   const artistsToUpdate = {
+    id,
     name,
     birthdate,
     activeSince,
     genres,
     labels,
-    website,
     image,
+    website,
     shortDescription,
   };
+  console.log(id);
   const artistAsJSON = JSON.stringify(artistsToUpdate);
   const res = await fetch(`${endpoint}/artists/${id}`, {
     method: "PUT",
@@ -71,11 +73,35 @@ async function updateArtists(
 }
 
 async function deleteArtists(id) {
-  
-  const res = await fetch(`${endpoint}/artists/${id}.json`, {
+  const res = await fetch(`${endpoint}/artists/${id}`, {
     method: "DELETE",
   });
   return res;
 }
-
-export { createArtist, readData, updateArtists, deleteArtists };
+// == Add to favorites == //
+async function fetchFavorites() {
+	const response = await fetch(`${endpoint}/favorites`);
+	const data = await response.json();
+	return data;
+}
+async function addToFavorites(id) {
+	const newFavorite = {
+		id: id,
+	};
+	const newFavAsJSON = JSON.stringify(newFavorite);
+	const response = await fetch(`${endpoint}/favorites`, {
+		method: "POST",
+		body: newFavAsJSON,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+	return response;
+}
+async function removeFromFavorites(id) {
+	const response = await fetch(`${endpoint}/favorites/${id}`, {
+		method: "DELETE",
+	});
+	return response;
+}
+export { createArtist, readData, updateArtists, deleteArtists, fetchFavorites, addToFavorites, removeFromFavorites };
