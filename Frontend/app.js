@@ -73,6 +73,7 @@ async function displayArtist(artist) {
     .addEventListener("click", () => updateArtistClicked(artist));
 }
 
+// Delete knap på artist
 async function deleteArtistClicked(id) {
   console.log("hej");
   const res = await deleteArtists(id);
@@ -81,6 +82,7 @@ async function deleteArtistClicked(id) {
   }
 }
 
+// hjælpe funktion til updateartistclicked
 function selectArtist(artist) {
   selectedListOfArtists = artist;
   const updateForm = document.querySelector("#form-update");
@@ -94,6 +96,7 @@ function selectArtist(artist) {
   updateForm.shortDescription.value = artist.shortDescription;
 }
 
+// update knap på artists
 async function updateArtistClicked(event) {
   event.preventDefault();
   const form = event.target
@@ -123,6 +126,7 @@ async function updateArtistClicked(event) {
   }
 }
 
+// create form
 async function createClicked(event) {
   event.preventDefault();
   const form = event.target
@@ -151,6 +155,7 @@ async function createClicked(event) {
   }
 }
 
+// update af liste efter delete/update
 async function updateGrid() {
   const artists = await readData();
   displayArtist(artists);

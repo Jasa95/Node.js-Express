@@ -80,5 +80,16 @@
     "shortDescription": "Soulful pop and R&B vocalist."
   },
   { "name": { "isTrusted": true }, "id": 1693994273663 },
-  { "name": { "isTrusted": true }, "id": 1693994603515 }
+  { "name": { "isTrusted": true }, "id": 1693994603515 },
+  {
+    "name": "Jacob Stadarfeld Andersen",
+    "birthdate": "1995-02-05",
+    "activeSince": "2010-09-19",
+    "genres": "Techno",
+    "labels": "yo mama",
+    "website": "https://www.euroman.dk/media/2ee53b234e6c471a92658ad8ba2ba613/ba390c62da86461a92ad903f465a026a.jpg?width=1920",
+    "image": "https://www.facebook.com/",
+    "shortDescription": "Best dj in the world!",
+    "id": 1694074501075
+  }
 ]
