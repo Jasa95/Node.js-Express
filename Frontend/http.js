@@ -71,7 +71,8 @@ async function updateArtists(
 }
 
 async function deleteArtists(id) {
-  const res = await fetch(`${endpoint}/artists/${id}`, {
+  
+  const res = await fetch(`${endpoint}/artists/${id}.json`, {
     method: "DELETE",
   });
   return res;

@@ -1,7 +1,6 @@
 import express from "express";
 import fs from "fs/promises";
 import cors from "cors";
-import { log } from "console";
 
 const app = express();
 const port = 6969;
@@ -22,10 +21,10 @@ app.get("/artists", async (req, res) => {
 app.post("/artists", async (req, res) => {
   const newArtist = req.body;
   newArtist.id = new Date().getTime();
-  
+
   const data = await fs.readFile("./backend/data/artists.json");
   const artists = JSON.parse(data);
-  
+
   artists.push(newArtist);
   fs.writeFile("./backend/data/artists.json", JSON.stringify(artists));
   res.json(artists);

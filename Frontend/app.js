@@ -10,16 +10,19 @@ import {
 window.addEventListener("load", start);
 
 let artists;
+let selectedListOfArtists;
+
 // start funktion der loader med window.addeventlistner
 async function start() {
   console.log("run niggah ruuun");
   artists = await readData();
-  console.log(artists);
+
   displayListOfArtists(artists);
+  updateGrid();
 
   document
     .querySelector("#form-create")
-    .addEventListener("submit", createArtist);
+    .addEventListener("submit", createClicked);
   document
     .querySelector("#form-update")
     .addEventListener("submit", updateArtists);
@@ -63,5 +66,92 @@ async function displayArtist(artist) {
 
   document
     .querySelector("#artists section:last-child .btn-delete")
-    .addEventListener("click", () => deleteArtists(artist.id));
+    .addEventListener("click", () => deleteArtistClicked(artist.id));
+
+  document
+    .querySelector("#artists section:last-child .btn-update")
+    .addEventListener("click", () => updateArtistClicked(artist));
+}
+
+async function deleteArtistClicked(id) {
+  console.log("hej");
+  const res = await deleteArtists(id);
+  if (res.ok) {
+    updateGrid();
+  }
+}
+
+function selectArtist(artist) {
+  selectedListOfArtists = artist;
+  const updateForm = document.querySelector("#form-update");
+  updateForm.name.value = artist.name;
+  updateForm.birthdate.value = artist.birthdate;
+  updateForm.activeSince.value = artist.activeSince;
+  updateForm.genres.value = artist.genres;
+  updateForm.labels.value = artist.labels;
+  updateForm.image.value = artist.image;
+  updateForm.website.value = artist.website;
+  updateForm.shortDescription.value = artist.shortDescription;
+}
+
+async function updateArtistClicked(event) {
+  event.preventDefault();
+  const form = event.target
+  const name = form.name.value;
+  const birthdate = form.brithdate.value;
+  const activeSince = form.activeSince.value;
+  const genres = form.genres.value;
+  const labels = form.labels.value;
+  const image = form.image.value;
+  const website = form.website.value;
+  const shortDescription = form.shortDescription.value;
+  const res = await updateArtists(
+    selectArtist.id,
+    name,
+    birthdate,
+    activeSince,
+    genres,
+    labels,
+    website,
+    image,
+    shortDescription
+  );
+
+  if (res.ok) {
+    form.reset();
+    updateGrid();
+  }
+}
+
+async function createClicked(event) {
+  event.preventDefault();
+  const form = event.target
+  const name = form.name.value;
+  const birthdate = form.birthdate.value;
+  const activeSince = form.activeSince.value;
+  const genres = form.genres.value;
+  const labels = form.labels.value;
+  const image = form.image.value;
+  const website = form.website.value;
+  const shortDescription = form.shortDescription.value;
+  const res = await createArtist(
+    name,
+    birthdate,
+    activeSince,
+    genres,
+    labels,
+    image,
+    website,
+    shortDescription
+  );
+
+  if (res.ok) {
+    form.reset();
+    updateGrid();
+  }
+}
+
+async function updateGrid() {
+  const artists = await readData();
+  displayArtist(artists);
 }
