@@ -78,30 +78,5 @@ async function deleteArtists(id) {
   });
   return res;
 }
-// == Add to favorites == //
-async function fetchFavorites() {
-	const response = await fetch(`${endpoint}/favorites`);
-	const data = await response.json();
-	return data;
-}
-async function addToFavorites(id) {
-	const newFavorite = {
-		id: id,
-	};
-	const newFavAsJSON = JSON.stringify(newFavorite);
-	const response = await fetch(`${endpoint}/favorites`, {
-		method: "POST",
-		body: newFavAsJSON,
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
-	return response;
-}
-async function removeFromFavorites(id) {
-	const response = await fetch(`${endpoint}/favorites/${id}`, {
-		method: "DELETE",
-	});
-	return response;
-}
-export { createArtist, readData, updateArtists, deleteArtists, fetchFavorites, addToFavorites, removeFromFavorites };
+
+export { createArtist, readData, updateArtists, deleteArtists }

@@ -4,18 +4,13 @@ import {
   readData,
   updateArtists,
   deleteArtists,
-  fetchFavorites,
-  addToFavorites,
-  removeFromFavorites,
 } from "./http.js";
-import { sortArtist, filterArtist } from "./Sorter-filter.js";
 
 // load og kører start funktion
 window.addEventListener("load", start);
 
 let artists;
 let selectedListOfArtists;
-let favoriteID;
 
 // start funktion der loader med window.addeventlistner
 async function start() {
@@ -23,6 +18,7 @@ async function start() {
   artists = await readData();
 
   displayListOfArtists(artists);
+  makeFilterCheckboxes();
 
   document
     .querySelector("#form-create")
@@ -30,13 +26,10 @@ async function start() {
   document
     .querySelector("#form-update")
     .addEventListener("submit", updateArtistClicked);
+
   document
-    .querySelector("#filter-by")
-    .addEventListener("change", filterByChanged);
-  document.querySelector("#sort-by").addEventListener("change", sortByChanged);
-  document
-    .querySelector("#favoritesCheckBox")
-    .addEventListener("change", favoritesClicked);
+    .querySelector("#filter-form")
+    .addEventListener("change", filterArtistsByGenre);
 }
 
 // display funktion der tager og kigger på om der er nogen artists
@@ -83,14 +76,6 @@ async function displayArtist(artist) {
   document
     .querySelector("#artists article:last-child .btn-update")
     .addEventListener("click", () => selectArtist(artist));
-
-  document
-    .querySelector("#artists article:last-child .btn-favorite")
-    .addEventListener("click", () => addToFavorites(artist.id));
-
-  document
-    .querySelector("#artists article:last-child .btn-remove-favorite")
-    .addEventListener("click", () => removeFromFavorites(artist.id));
 }
 
 // Delete knap på artist
@@ -180,28 +165,68 @@ async function createClicked(event) {
 // update af liste efter delete/update
 async function updateGrid() {
   const artists = await readData();
-  favoriteID = await fetchFavorites();
-  displayArtist(artists);
+  displayListOfArtists(artists);
 }
-function favoritesClicked(event) {
-  const isCheckedOff = event.target.checked;
-  console.log(isCheckedOff);
-  if (isCheckedOff) {
-    displayArtist(favoriteID);
-  } else {
-    updateGrid();
+
+async function makeFilterCheckboxes() {
+  console.log("Creation of filter checkboxes");
+  const genres = await getGenresFromArtists();
+  for (let i = 0; i < genres.length; i++) {
+    const genresHtml = /* html */ `
+      <div id="checkboxes">
+        <label for="${genres[i].toLowerCase()}">${genres[i]}</label>
+        <input
+          type="checkbox"
+          name="genre"
+          id="${genres[i].toLowerCase()}"
+          value="${genres[i]}"
+        />
+      </div>
+    `;
+
+    document
+      .querySelector("#filter-form")
+      .insertAdjacentHTML("beforeend", genresHtml);
+  }
+
+  async function getGenresFromArtists() {
+    console.log("Get different genres from artists");
+    const artists = await readData();
+
+    let differentGenres = [];
+    for (let i = 0; i < artists.length; i++) {
+      for (let q = 0; q < artists[i].genres.length; q++) {
+        if (!differentGenres.includes(artists[i].genres[q])) {
+          differentGenres.push(artists[i].genres[q]);
+        }
+      }
+    }
+    return differentGenres;
   }
 }
-// == Sort
-function sortByChanged(event) {
-  const selectedValue = event.target.value;
-  displayArtist(sortArtist(artists, selectedValue));
+async function filterArtistsByGenre() {
+  console.log("hej");
+  const artists = await readData();
+  const selected = [];
+  const inputs = document
+    .querySelector("#filter-form")
+    .querySelectorAll("input[type='checkbox']");
+
+  for (const input of inputs) {
+    if (input.checked) {
+      selected.push(input.value);
+    }
+  }
+  if (selected.length === 0) {
+    updateGrid();
+  } else {
+    const filteredArtists = artists.filter((artist) => {
+      return selected.some((genre) => artist.genres.includes(genre));
+    });
+    displayListOfArtists(filteredArtists);
+  }
 }
-// == Filter
-function filterByChanged(event) {
-  const selectedValue = event.target.value;
-  displayArtist(filterArtist(artists, selectedValue));
-}
+
 // scroll
 function scroll() {
   window.scrollTo({ top: 0, behavior: "smooth" });

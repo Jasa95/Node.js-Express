@@ -188,3 +188,8 @@ input {
   background: var(--white);
 }
 
+#filter-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 40%;
+}

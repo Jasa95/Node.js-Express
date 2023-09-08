@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "name": "John Smith",
+  "birthdate": "15-03-1985",
+  "activeSince": "2005",
+  "genres": ["Pop", "Rock"],
+  "labels": ["Universal Music", "Indie Records"],
+  "website": "http://www.johnsmithmusic.com",
+  "image": "https://assets.editorial.aetnd.com/uploads/2009/11/portrait-of-john-smith.jpg",
+  "shortDescription": "Talented pop-rock singer-songwriter."
+}

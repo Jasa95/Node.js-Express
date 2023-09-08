@@ -1,1 +1,90 @@
-[{"id":1,"name":"John Smith1","birthdate":"15-03-1985","activeSince":"2005","genres":["Pop","Rock"],"labels":["Universal Music","Indie Records"],"website":"http://www.johnsmithmusic.com","image":"https://assets.editorial.aetnd.com/uploads/2009/11/portrait-of-john-smith.jpg","shortDescription":"Talented pop-rock singer-songwriter."},{"id":2,"name":"Emily Johnson","birthdate":"22-08-1990","activeSince":"2010","genres":["Indie","Folk"],"labels":["Acoustic Sounds","Serenade Records"],"website":"http://www.emilyjohnsonmusic.com","image":"https://www.nativeartsandcultures.org/wp-content/uploads/2010/11/emily-johnson-yup-ik-nacf-fellow.jpg","shortDescription":"Soulful indie-folk artist with a unique voice."},{"id":3,"name":"David Williams","birthdate":"05-11-1978","activeSince":"1998","genres":["R&B","Soul"],"labels":["Groove Records","Soulful Productions"],"website":"http://www.davidwilliamsmusic.com","image":"https://images.squarespace-cdn.com/content/v1/5af70d0c3e2d09446211894a/1614290134840-S8P0MJE42FOHQVA3C2P7/Unknown-7.jpeg","shortDescription":"Smooth R&B and soul vocalist."},{"id":4,"name":"Maria Rodriguez","birthdate":"30-06-1992","activeSince":"2012","genres":["Latin","Pop"],"labels":["Ritmo Latino","Sony Music"],"website":"http://www.mariarodriguez.com","image":"https://images.squarespace-cdn.com/content/v1/5363c7d1e4b0deab930f8938/1504196713392-9X2DXVQG7P5GTGMLO6Y1/Rodriguez-BW-portrait-684x1024.jpg","shortDescription":"Energetic Latin pop sensation."},{"id":5,"name":"Alexandre Dubois","birthdate":"18-02-1989","activeSince":"2010","genres":["Electronic","Ambient"],"labels":["SynthWave Records","EchoSound Productions"],"website":"http://www.alexandredubois.com","image":"https://image.invaluable.com/housePhotos/christies/94/311594/H0027-L25577690.jpg","shortDescription":"Innovative electronic soundscapes creator."},{"id":6,"name":"Sophie Chen","birthdate":"12-09-1995","activeSince":"2015","genres":["Pop","Dance"],"labels":["Starlight Music","ElectroBeat Records"],"website":"http://www.sophiechenmusic.com","image":"https://i0.wp.com/janolapin.com/wp-content/uploads/2020/11/soph-7-by-%E9%BB%83%E5%A4%A9%E5%B5%90..jpg?resize=720%2C480&ssl=1","shortDescription":"Energetic pop and dance performer."},{"id":7,"name":"Michael O'Connor","birthdate":"25-04-1982","activeSince":"2002","genres":["Country","Folk"],"labels":["Nashville Records","CountryTunes Productions"],"website":"http://www.michaeloconnormusic.com","image":"https://www.michaeloconnorpaintings.com/mpo2.jpg","shortDescription":"Authentic country and folk storyteller."},{"id":8,"name":"Lena Schmidt","birthdate":"10-12-1998","activeSince":"2018","genres":["Pop","R&B"],"labels":["Velvet Voice Entertainment","Starshine Records"],"website":"http://www.lenaschmidtmusic.com","image":"https://d16kd6gzalkogb.cloudfront.net/__sized__/artist_images/Lena-Schmidt-portrait-photo-credits-of-the-artist-crop_webp-555x312.webp","shortDescription":"Soulful pop and R&B vocalist."}]
+[
+  {
+    "id": 1,
+    "name": "John Smith1",
+    "birthdate": "15-03-1985",
+    "activeSince": "2005",
+    "genres": ["Pop", "Rock"],
+    "labels": ["Universal Music", "Indie Records"],
+    "website": "http://www.johnsmithmusic.com",
+    "image": "https://assets.editorial.aetnd.com/uploads/2009/11/portrait-of-john-smith.jpg",
+    "shortDescription": "Talented pop-rock singer-songwriter."
+  },
+  {
+    "id": 2,
+    "name": "Emily Johnson",
+    "birthdate": "22-08-1990",
+    "activeSince": "2010",
+    "genres": ["Indie", "Folk"],
+    "labels": ["Acoustic Sounds", "Serenade Records"],
+    "website": "http://www.emilyjohnsonmusic.com",
+    "image": "https://www.nativeartsandcultures.org/wp-content/uploads/2010/11/emily-johnson-yup-ik-nacf-fellow.jpg",
+    "shortDescription": "Soulful indie-folk artist with a unique voice."
+  },
+  {
+    "id": 3,
+    "name": "David Williams",
+    "birthdate": "05-11-1978",
+    "activeSince": "1998",
+    "genres": ["R&B", "Soul"],
+    "labels": ["Groove Records", "Soulful Productions"],
+    "website": "http://www.davidwilliamsmusic.com",
+    "image": "https://images.squarespace-cdn.com/content/v1/5af70d0c3e2d09446211894a/1614290134840-S8P0MJE42FOHQVA3C2P7/Unknown-7.jpeg",
+    "shortDescription": "Smooth R&B and soul vocalist."
+  },
+  {
+    "id": 4,
+    "name": "Maria Rodriguez",
+    "birthdate": "30-06-1992",
+    "activeSince": "2012",
+    "genres": ["Latin", "Pop"],
+    "labels": ["Ritmo Latino", "Sony Music"],
+    "website": "http://www.mariarodriguez.com",
+    "image": "https://images.squarespace-cdn.com/content/v1/5363c7d1e4b0deab930f8938/1504196713392-9X2DXVQG7P5GTGMLO6Y1/Rodriguez-BW-portrait-684x1024.jpg",
+    "shortDescription": "Energetic Latin pop sensation."
+  },
+  {
+    "id": 5,
+    "name": "Alexandre Dubois",
+    "birthdate": "18-02-1989",
+    "activeSince": "2010",
+    "genres": ["Electronic", "Ambient"],
+    "labels": ["SynthWave Records", "EchoSound Productions"],
+    "website": "http://www.alexandredubois.com",
+    "image": "https://image.invaluable.com/housePhotos/christies/94/311594/H0027-L25577690.jpg",
+    "shortDescription": "Innovative electronic soundscapes creator."
+  },
+  {
+    "id": 6,
+    "name": "Sophie Chen",
+    "birthdate": "12-09-1995",
+    "activeSince": "2015",
+    "genres": ["Pop", "Dance"],
+    "labels": ["Starlight Music", "ElectroBeat Records"],
+    "website": "http://www.sophiechenmusic.com",
+    "image": "https://i0.wp.com/janolapin.com/wp-content/uploads/2020/11/soph-7-by-%E9%BB%83%E5%A4%A9%E5%B5%90..jpg?resize=720%2C480&ssl=1",
+    "shortDescription": "Energetic pop and dance performer."
+  },
+  {
+    "id": 7,
+    "name": "Michael O'Connor",
+    "birthdate": "25-04-1982",
+    "activeSince": "2002",
+    "genres": ["Country", "Folk"],
+    "labels": ["Nashville Records", "CountryTunes Productions"],
+    "website": "http://www.michaeloconnormusic.com",
+    "image": "https://www.michaeloconnorpaintings.com/mpo2.jpg",
+    "shortDescription": "Authentic country and folk storyteller."
+  },
+  {
+    "id": 8,
+    "name": "Lena Schmidt",
+    "birthdate": "10-12-1998",
+    "activeSince": "2018",
+    "genres": ["Pop", "R&B"],
+    "labels": ["Velvet Voice Entertainment", "Starshine Records"],
+    "website": "http://www.lenaschmidtmusic.com",
+    "image": "https://d16kd6gzalkogb.cloudfront.net/__sized__/artist_images/Lena-Schmidt-portrait-photo-credits-of-the-artist-crop_webp-555x312.webp",
+    "shortDescription": "Soulful pop and R&B vocalist."
+  }
+]
